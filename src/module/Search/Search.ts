@@ -1,15 +1,16 @@
 import { createReducer } from 'typesafe-actions';
+import {
+  getSearchAsync,
+  SEARCH,
+  SEARCH_FAILURE,
+  SEARCH_SUCCESS,
+} from './action';
 
 import createAsyncSaga from '../../lib/utils/createSaga';
 import * as api from '../../lib/api/api';
 import { takeLatest } from 'redux-saga/effects';
 
 import { SearchState, SearchAction } from './type';
-import { getSearchAsync } from './action';
-
-export const SEARCH = 'search/search';
-export const SEARCH_SUCCESS = 'search/search_success';
-export const SEARCH_FAILURE = 'search/search_failure';
 
 const initialState: SearchState = {
   data: null,

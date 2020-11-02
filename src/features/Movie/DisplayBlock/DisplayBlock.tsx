@@ -9,6 +9,7 @@ import {
 import { RootState } from '../../../module';
 import { nowPlaying_Result } from '../../../lib/api/apiType';
 import DisplayItem from '../../../components/common/DisplayItem/DisplayItem';
+import SelectForm from '../../../components/common/SelectForm/SelecteForm';
 
 function Movie() {
   const { nowPlaying } = useSelector((state: RootState) => ({
@@ -41,16 +42,19 @@ function Movie() {
   }
 
   return (
-    <Styled.DisPlayBlockWrapper>
-      {nowPlaying.results && (
-        <>
-          <Styled.DisplayBlockTitle>Now Playing</Styled.DisplayBlockTitle>
-          <Styled.DisplayBLockItemContainer>
-            {nowPlaying.results.map(result => renderNow(result))}
-          </Styled.DisplayBLockItemContainer>
-        </>
-      )}
-    </Styled.DisPlayBlockWrapper>
+    <>
+      <Styled.DisPlayBlockWrapper>
+        {nowPlaying.results && (
+          <>
+            <Styled.DisplayBlockTitle>Now Playing</Styled.DisplayBlockTitle>
+            <Styled.DisplayBLockItemContainer>
+              {nowPlaying.results.map(result => renderNow(result))}
+            </Styled.DisplayBLockItemContainer>
+          </>
+        )}
+      </Styled.DisPlayBlockWrapper>
+      <SelectForm />
+    </>
   );
 }
 
