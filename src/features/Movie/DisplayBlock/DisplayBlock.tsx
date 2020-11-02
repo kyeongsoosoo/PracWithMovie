@@ -26,6 +26,7 @@ function Movie() {
       return (
         <DisplayItem
           key={result.id}
+          id={result.id}
           bgUrl={result.poster_path}
           title={result.original_title}
           rating={result.vote_average}

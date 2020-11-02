@@ -6,7 +6,14 @@ const DisPlayBlockWrapper = styled.div`
 `;
 
 const DisplayBlockTitle = styled.div`
-  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
 `;
 
 const DisplayBLockItemContainer = styled.div`

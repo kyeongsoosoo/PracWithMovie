@@ -13,11 +13,6 @@ function Tab(): JSX.Element {
             Movie
           </Styled.TabLink>
         </Styled.TabItemWrapper>
-        <Styled.TabItemWrapper istabhere={pathName === '/tv'}>
-          <Styled.TabLink to="/tv" istabhere={pathName === '/tv'}>
-            TV
-          </Styled.TabLink>
-        </Styled.TabItemWrapper>
         <Styled.TabItemWrapper istabhere={pathName === '/search'}>
           <Styled.TabLink to="/search" istabhere={pathName === '/search'}>
             Search

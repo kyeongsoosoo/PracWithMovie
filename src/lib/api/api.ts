@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { async } from 'q';
 
 import * as apiType from './apiType';
 
@@ -27,21 +26,29 @@ export async function getUpcoming(payload: string) {
 
   return response.data;
 }
+export async function getSearch(payload: string) {
+  const response = await api.get<apiType.movie_nowPlaying>('search/movie', {
+    params: {
+      query: encodeURIComponent(payload),
+    },
+  });
+
+  return response.data;
+}
+
+export async function getDetail(payload: string) {
+  const response = await api.get<apiType.detail_Result>(`movie/${payload}`, {
+    params: {
+      append_to_response: 'videos',
+    },
+  });
+  return response.data;
+}
 
 export const moviesApi = {
   nowPlaying: async (payload: string) => getNowPlaying(payload),
   upcoming: (payload: string) => getUpcoming(payload),
   popular: (payload: string) => getpopular(payload),
-  movieDetail: (id: string) =>
-    api.get(`movie/${id}`, {
-      params: {
-        append_to_response: 'videos',
-      },
-    }),
-  search: (term: string) =>
-    api.get('search/movie', {
-      params: {
-        query: encodeURIComponent(term),
-      },
-    }),
+  movieDetail: (id: string) => getDetail(id),
+  search: (term: string) => getSearch(term),
 };

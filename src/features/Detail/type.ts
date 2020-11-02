@@ -1,7 +1,7 @@
-export type ItemProp = ImgProp & TitleProp & ExtraProp & LinkProp;
+export type ItemProp = ImgProp & TitleProp & ExtraProp;
 
 export type ImgProp = {
-  bgUrl: string;
+  bgImage: string;
 };
 
 export type TitleProp = {
@@ -11,8 +11,4 @@ export type TitleProp = {
 export type ExtraProp = {
   rating: number;
   year: Date;
-};
-
-export type LinkProp = {
-  id: number;
 };
