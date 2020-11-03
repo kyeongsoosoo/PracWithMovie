@@ -12,6 +12,8 @@ import { takeLatest } from 'redux-saga/effects';
 
 import { SearchState, SearchAction } from './type';
 
+// 비동기 데이터를 받아오는 isFetching state에 넣어 두면 좋습니다.
+// state가 아닌 saga를 통해서 관리하는 경우도 있는데 이건 다음에 보여 드릴게요.
 const initialState: SearchState = {
   data: null,
   error: null,
