@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+// 길어지더라도 import { getNowPlayingPayload, otherPayload, someOtherPayload } from './apiType' 으로 작성하는게 좋습니다.
 import * as apiType from './apiType';
 
+// axios.create 한 객체는 주로 client라고 이름 짓습니다.
+// 그리고 client.ts등의 파일에 따로 작성합니다.
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
   params: {
