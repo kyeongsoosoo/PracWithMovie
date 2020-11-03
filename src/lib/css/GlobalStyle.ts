@@ -3,8 +3,8 @@ import reset from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
-
-    body{
+/* 띄워쓰기 */
+    body {
         box-sizing: border-box;
         background : #212529;
         display: flex;
@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
         color: inherit;
     }
 
-    input{
+    input {
         outline: none;
         border: none;
         border-bottom: 3px solid rgba(0,0,0,0.3);
