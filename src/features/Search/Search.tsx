@@ -30,6 +30,7 @@ function Search() {
   const renderSearch = useCallback(
     (result: nowPlaying_Result) => {
       return (
+        // children이 없으면 <DisplayItem ...props /> 처럼 작성합니다.
         <DisplayItem
           key={result.id}
           id={result.id.toString()}
@@ -60,6 +61,7 @@ function Search() {
       <Styled.SearchResultTitle>{`Result for : ${localSearch}`}</Styled.SearchResultTitle>
       <Styled.SearchResultWrapper>
         <Styled.SearchResultContent>
+          {/* onChange={handleChange} 를 괄호 없이 쓰는 것처럼, 얘도 .map(renderSearch) 할 수 있습니다. JS는 암시적으로 parameter를 받거든요  */}
           {search.results.map(result => renderSearch(result))}
         </Styled.SearchResultContent>
       </Styled.SearchResultWrapper>

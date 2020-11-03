@@ -12,6 +12,8 @@ import DisplayItem from '../../../components/common/DisplayItem/DisplayItem';
 import SelectForm from '../../../components/common/SelectForm/SelecteForm';
 import { PosterProp } from '../../../module/Select/Select';
 
+// 파일명과 함수명을 일치시켜주세요
+
 function Movie() {
   const { nowPlaying, select } = useSelector((state: RootState) => ({
     nowPlaying: state.movie.data.nowPlaying,
@@ -53,6 +55,7 @@ function Movie() {
     },
     [select],
   );
+
   if (!nowPlaying) {
     return <div>What</div>;
   }
