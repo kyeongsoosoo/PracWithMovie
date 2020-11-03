@@ -17,6 +17,8 @@ const initialState: SearchState = {
   error: null,
 };
 
+// saga 도 SearchSaga와 같은 식으로 분리해 주세요.
+// Search -> SearchReducer.ts로 파일 이름을 명확하게 해주는 것이 좋습니다.
 const getSearchSaga = createAsyncSaga(getSearchAsync, api.getSearch);
 
 export function* searchSaga() {
