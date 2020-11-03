@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 
-const SelectFormCircleButton = styled.button`
+type OpenProp = {
+  open: boolean;
+  chiledren?: React.ReactNode;
+};
+
+const SelectFormCircleButton = styled.button<OpenProp>`
   background: #38d9a9;
 
   &:hover {
@@ -26,7 +31,7 @@ const SelectFormCircleButton = styled.button`
   align-items: center;
   justify-content: center;
   top: 50%;
-  transform: translate(15%, -50%);
+  transform: translate(-5px, -40px);
   transition: 0.5s all ease-in;
   ${props =>
     props.open &&
@@ -38,7 +43,7 @@ const SelectFormCircleButton = styled.button`
       &:active {
         background: #fa5252;
       }
-      transform: translate(-50%, 50%) rotate(45deg);
+      transform: translate(795px, -40px) rotate(45deg);
     `}
 `;
 
@@ -50,16 +55,31 @@ const SelectFormPositioner = styled.div`
   position: relative;
 `;
 
-const SelectFormBox = styled.div`
+const SelectFormText = styled.div`
+  width: 100px;
+  height: 100px;
+  color: black;
+  position: absolute;
+  z-index: 2;
+`;
+
+const SelectFormBox = styled.div<OpenProp>`
   width: 100%;
   height: 200px;
-  background: white;
-  transform: translateX(-95%);
+  background: #ced4da;
+  transform: translateX(-1200px);
   position: absolute;
+  transition: 0.5s all ease-in;
+  ${props =>
+    props.open &&
+    css`
+      transform: translateX(-400px);
+    `}
 `;
 
 export default {
   SelectFormBox,
   SelectFormCircleButton,
   SelectFormPositioner,
+  SelectFormText,
 };

@@ -10,9 +10,8 @@ export type TitleProp = {
 
 export type ExtraProp = {
   rating: number;
-  year: Date;
 };
 
 export type LinkProp = {
-  id: number;
+  id: string;
 };

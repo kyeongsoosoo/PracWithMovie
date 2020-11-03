@@ -8,12 +8,23 @@ import { applyMiddleware, createStore } from 'redux';
 import App from './components/App';
 import { GlobalStyle } from './lib/css/GlobalStyle';
 import rootReducer, { rootSaga } from './module';
+import { loginFalse, loginSuccess } from './module/Login/login';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
+const loginCheck = () => {
+  const user = localStorage.getItem('user');
+  if (user) {
+    store.dispatch(loginSuccess());
+  } else {
+    store.dispatch(loginFalse());
+  }
+};
+
 sagaMiddleware.run(rootSaga);
+loginCheck();
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,5 +1,5 @@
 import Styled from './Display.styled';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getMovieNowPlaingAsync,
@@ -10,10 +10,12 @@ import { RootState } from '../../../module';
 import { nowPlaying_Result } from '../../../lib/api/apiType';
 import DisplayItem from '../../../components/common/DisplayItem/DisplayItem';
 import SelectForm from '../../../components/common/SelectForm/SelecteForm';
+import { PosterProp } from '../../../module/Select/Select';
 
 function Movie() {
-  const { nowPlaying } = useSelector((state: RootState) => ({
+  const { nowPlaying, select } = useSelector((state: RootState) => ({
     nowPlaying: state.movie.data.nowPlaying,
+    select: state.select,
   }));
 
   const dispatch = useDispatch();
@@ -27,15 +29,29 @@ function Movie() {
       return (
         <DisplayItem
           key={result.id}
-          id={result.id}
+          id={result.id.toString()}
           bgUrl={result.poster_path}
           title={result.original_title}
           rating={result.vote_average}
-          year={result.release_date}
         ></DisplayItem>
       );
     },
     [nowPlaying],
+  );
+
+  const renderSelect = useCallback(
+    (result: PosterProp) => {
+      return (
+        <DisplayItem
+          key={result.id}
+          id={result.id.toString()}
+          bgUrl={result.bgUrl}
+          title={result.title}
+          rating={result.rating}
+        ></DisplayItem>
+      );
+    },
+    [select],
   );
   if (!nowPlaying) {
     return <div>What</div>;
@@ -53,7 +69,7 @@ function Movie() {
           </>
         )}
       </Styled.DisPlayBlockWrapper>
-      <SelectForm />
+      <SelectForm>{select.map(result => renderSelect(result))}</SelectForm>
     </>
   );
 }

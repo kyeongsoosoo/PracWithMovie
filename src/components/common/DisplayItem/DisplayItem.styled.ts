@@ -19,6 +19,21 @@ const DispalyItemExtra = styled.div`
   opacity: 0;
   transition: opacity 0.1s linear;
 `;
+
+const DisplayItemAddButton = styled.button`
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+  background: #38d9a9;
+  color: white;
+  font-size: 15px;
+  display: none;
+`;
+
 const DisplayItemImgContainer = styled.div<ImgProp>`
   background-image: url(${({ bgUrl }) => bgUrl});
   background-size: cover;
@@ -27,11 +42,19 @@ const DisplayItemImgContainer = styled.div<ImgProp>`
   width: 100px;
   height: 150px;
   position: relative;
-  &: hover {
+  &:hover {
     ${DispalyItemExtra} {
       opacity: 1;
     }
-    opacity: 0.3;
+    & {
+      opacity: 0.3;
+    }
+
+    ${DisplayItemAddButton} {
+      display: block;
+      opacity: 1;
+      z-index: 3;
+    }
   }
 `;
 
@@ -55,4 +78,5 @@ export default {
   DisplayItemText,
   DispalyItemExtra,
   DisplayLink,
+  DisplayItemAddButton,
 };

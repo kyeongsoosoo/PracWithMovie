@@ -35,6 +35,17 @@ const TabLink = styled(Link)<TabType>`
   color: ${({ istabhere }) => (istabhere ? 'white' : 'grey')};
 `;
 
+const TabLogout = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #343a40;
+  width: 20%;
+  height: 4.5rem;
+  font-size: 1rem;
+`;
+
 const Spacer = styled.div`
   height: 4.5rem;
 `;
@@ -44,4 +55,5 @@ export default {
   TabWrapper,
   TabItemWrapper,
   TabLink,
+  TabLogout,
 };

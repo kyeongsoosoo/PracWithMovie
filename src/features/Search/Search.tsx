@@ -32,11 +32,10 @@ function Search() {
       return (
         <DisplayItem
           key={result.id}
-          id={result.id}
+          id={result.id.toString()}
           bgUrl={result.poster_path}
           title={result.original_title}
           rating={result.vote_average}
-          year={result.release_date}
         ></DisplayItem>
       );
     },
