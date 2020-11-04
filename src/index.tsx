@@ -15,7 +15,9 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 const loginCheck = () => {
+  //  'user' 대신에 unique할 수 있는 key값을 사용하면 좋습니다. 혹여 겹칠 수도 있으니까요
   const user = localStorage.getItem('user');
+  // user를 검증할 수 있다면 더 좋습니다. 물론 서버가 있을 때의 이야기지만..
   if (user) {
     store.dispatch(loginSuccess());
   } else {

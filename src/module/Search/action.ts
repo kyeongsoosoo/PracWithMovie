@@ -1,5 +1,6 @@
 import { AxiosError } from 'axios';
 import { createAsyncAction } from 'typesafe-actions';
+
 import { movie_nowPlaying } from '../../lib/api/apiType';
 
 export const SEARCH = 'search/search';

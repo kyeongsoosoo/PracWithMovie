@@ -6,6 +6,9 @@ export interface movie_nowPlaying {
   total_results: number;
 }
 
+// 네이밍 시에 _ 쓰지 마세요
+// api 내부에서 받아오는 데이터의 경우 어쩔 수 없지만
+// 저는 이런 데이터들도 최대한 camelCase로 변환하는 편입니다.
 export interface nowPlaying_Result {
   poster_path: string;
   adult: boolean;
@@ -77,6 +80,7 @@ export interface Dates {
   minimum: Date;
 }
 
+// 이런 것들은 constants 폴더를 빼고 OriginalLanguage.ts 파일을 만들어서 import 해주세요
 export enum OriginalLanguage {
   En = 'en',
   Sv = 'sv',
